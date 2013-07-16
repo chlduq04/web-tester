@@ -7,5 +7,8 @@ public class Orders {
 	public Orders( String type, String name ){
 		this.type = type;
 		this.name = name;
+		if( type.equals("get") ){
+			
+		}
 	}
 }

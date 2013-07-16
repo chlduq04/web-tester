@@ -6,10 +6,9 @@ import org.openqa.selenium.WebDriver;
 public class FindTag {
 	private WebDriver driver;
 	
-	public FindTag( WebDriver driver ){
+	public void SetDriver( WebDriver driver ){
 		this.driver = driver;
 	}
-	
 	/**
 	 * Click
 	 **/
@@ -59,44 +58,44 @@ public class FindTag {
 	}
 	
 	/**
-	 * Check 
+	 * getText 
 	 **/
-	public String checkClass( String tag ){
+	public String getTextClass( String tag ){
 		return driver.findElement( By.tagName(tag) ).getText();
 	}
-	public String checkXpath( String xpath ){
+	public String getTextXpath( String xpath ){
 		return driver.findElement( By.xpath(xpath) ).getText();
 	}
-	public String checkId( String id ){
+	public String getTextId( String id ){
 		return driver.findElement( By.id(id) ).getText();
 	}
-	public String checkTag( String tag ){
+	public String getTextTag( String tag ){
 		return driver.findElement( By.tagName(tag) ).getText();
 	}
-	public String checkName( String name ){
+	public String getTextName( String name ){
 		return driver.findElement( By.name(name) ).getText();
 	}
 	
 	/**
-	 * Delete 
+	 * clear 
 	 **/
-	public FindTag deleteXpath( String xpath ){
+	public FindTag clearXpath( String xpath ){
 		driver.findElement( By.xpath(xpath) ).clear();
 		return this;
 	}
-	public FindTag deleteId( String id ){
+	public FindTag clearId( String id ){
 		driver.findElement( By.id(id )).clear();
 		return this;
 	}
-	public FindTag deleteTag( String tag ){
+	public FindTag clearTag( String tag ){
 		driver.findElement( By.tagName(tag) ).clear();
 		return this;
 	}
-	public FindTag deleteClass( String tag ){
+	public FindTag clearClass( String tag ){
 		driver.findElement( By.tagName(tag) ).clear();
 		return this;
 	}
-	public FindTag deleteName( String name ){
+	public FindTag clearName( String name ){
 		driver.findElement( By.name(name) ).clear();
 		return this;
 	}
