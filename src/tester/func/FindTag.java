@@ -2,128 +2,102 @@ package tester.func;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class FindTag {
-	private WebElement ele;
-
-	public FindTag clickAppXpath( String xpath ,WebDriver driver ){
-		ele = driver.findElement(By.xpath(xpath));
-		ele.click();
+	private WebDriver driver;
+	
+	public FindTag( WebDriver driver ){
+		this.driver = driver;
+	}
+	
+	/**
+	 * Click
+	 **/
+	public FindTag clickXpath( String xpath ){
+		driver.findElement( By.xpath(xpath) ).click();
 		return this;
 	}
-	public FindTag clickAppId(String id,WebDriver driver){
-		ele = driver.findElement(By.id(id));
-		ele.click();
+	public FindTag clickId( String id ){
+		driver.findElement( By.id(id) ).click();
 		return this;
 	}
-	public FindTag clickAppTag(String tag,WebDriver driver){
-		ele = driver.findElement(By.tagName(tag));
-		ele.click();
+	public FindTag clickTag( String tag ){
+		driver.findElement( By.tagName(tag) ).click();
 		return this;
 	}	
-	public FindTag clickAppClass(String tag,WebDriver driver){
-		ele = driver.findElement(By.tagName(tag));
-		ele.click();
+	public FindTag clickClass( String tag ){
+		driver.findElement( By.tagName(tag) ).click();
 		return this;
 	} 
-	public FindTag clickAppName(String name,WebDriver driver){
-		ele = driver.findElement(By.name(name));
-		ele.click();
+	public FindTag clickName( String name ){
+		driver.findElement( By.name(name) ).click();
 		return this;
 	} 
 
-
-	public FindTag makeAppXpath(String xpath,WebDriver driver,String text){
-		ele = driver.findElement(By.xpath(xpath));
-		ele.sendKeys(text);
+	/**
+	 * Send
+	 **/
+	public FindTag sendXpath( String xpath, String text){
+		driver.findElement( By.xpath(xpath) ).sendKeys(text);
 		return this;
 	}
-	public FindTag makeAppId(String id,WebDriver driver,String text){
-		ele = driver.findElement(By.id(id));
-		ele.sendKeys(text);
+	public FindTag sendId( String id, String text){
+		driver.findElement( By.id(id) ).sendKeys(text);
 		return this;
 	}
-	public FindTag makeAppTag(String tag,WebDriver driver,String text){
-		ele = driver.findElement(By.tagName(tag));
-		ele.sendKeys(text);
+	public FindTag sendTag( String tag, String text){
+		driver.findElement( By.tagName(tag) ).sendKeys(text);
 		return this;
 	}
-	public FindTag makeAppClass(String tag,WebDriver driver,String text){
-		ele = driver.findElement(By.tagName(tag));
-		ele.sendKeys(text);
+	public FindTag sendClass( String tag, String text){
+		driver.findElement( By.tagName(tag) ).sendKeys(text);
 		return this;
 	}
-	public FindTag makeAppName(String name,WebDriver driver,String text){
-		ele = driver.findElement(By.name(name));
-		ele.sendKeys(text);
+	public FindTag sendName( String name, String text){
+		driver.findElement( By.name(name) ).sendKeys(text);
 		return this;
 	}
 	
-	
-	
-	
-	public String checkAppClass(String tag,WebDriver driver){
-		String ret_Str;
-		ele = driver.findElement(By.tagName(tag));
-		ret_Str = ele.getText();
-		ele = null;
-		return ret_Str;
+	/**
+	 * Check 
+	 **/
+	public String checkClass( String tag ){
+		return driver.findElement( By.tagName(tag) ).getText();
 	}
-	public String checkAppXpath(String xpath,WebDriver driver){
-		String ret_Str;
-		ele = driver.findElement(By.xpath(xpath));
-		ret_Str = ele.getText();
-		ele = null;
-		return ret_Str;
+	public String checkXpath( String xpath ){
+		return driver.findElement( By.xpath(xpath) ).getText();
 	}
-	public String checkAppId(String id,WebDriver driver){
-		String ret_Str;
-		ele = driver.findElement(By.id(id));
-		ret_Str = ele.getText();
-		ele = null;
-		return ret_Str;
+	public String checkId( String id ){
+		return driver.findElement( By.id(id) ).getText();
 	}
-	public String checkAppTag(String tag,WebDriver driver){
-		String ret_Str;
-		ele = driver.findElement(By.tagName(tag));
-		ret_Str = ele.getText();
-		ele = null;
-		return ret_Str;
+	public String checkTag( String tag ){
+		return driver.findElement( By.tagName(tag) ).getText();
 	}
-	public String checkAppName(String name,WebDriver driver){
-		String ret_Str;
-		ele = driver.findElement(By.name(name));
-		ret_Str = ele.getText();
-		ele = null;
-		return ret_Str;
+	public String checkName( String name ){
+		return driver.findElement( By.name(name) ).getText();
 	}
-
 	
-	
-	public FindTag deleteAppXpath(String xpath,WebDriver driver){
-		ele = driver.findElement(By.xpath(xpath));
-		ele.clear();
+	/**
+	 * Delete 
+	 **/
+	public FindTag deleteXpath( String xpath ){
+		driver.findElement( By.xpath(xpath) ).clear();
 		return this;
 	}
-	public FindTag deleteAppId(String id,WebDriver driver){
-		ele = driver.findElement(By.id(id));
-		ele.clear();
+	public FindTag deleteId( String id ){
+		driver.findElement( By.id(id )).clear();
 		return this;
 	}
-	public FindTag deleteAppTag(String tag,WebDriver driver){
-		ele = driver.findElement(By.tagName(tag));
-		ele.clear();
+	public FindTag deleteTag( String tag ){
+		driver.findElement( By.tagName(tag) ).clear();
 		return this;
 	}
-	public FindTag deleteAppClass(String tag,WebDriver driver){
-		ele = driver.findElement(By.tagName(tag));
-		ele.clear();
+	public FindTag deleteClass( String tag ){
+		driver.findElement( By.tagName(tag) ).clear();
 		return this;
 	}
-	public FindTag deleteAppName(String name,WebDriver driver){
-		ele = driver.findElement(By.name(name));
-		ele.clear();
+	public FindTag deleteName( String name ){
+		driver.findElement( By.name(name) ).clear();
 		return this;
 	}
 }
