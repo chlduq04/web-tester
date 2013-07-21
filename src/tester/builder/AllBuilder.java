@@ -39,6 +39,7 @@ public class AllBuilder extends FindTag{
 	public String getPageSource(){
 		return driver.getPageSource();
 	}
+	
 	public String urls( boolean put ){
 		if(put){
 			String argu = driver.getCurrentUrl();

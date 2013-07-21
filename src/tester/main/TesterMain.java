@@ -30,20 +30,22 @@ public class TesterMain extends TesterSetting{
 
 		startTest();
 	}
-
-	public int checkCount( boolean start )
-	{
-		if( start )
-			testCount = 0;
-		return testCount++;
-	}
 	public void setOrders(){
 		setOrder(ordersChrome,"http://www.google.co.kr");
 		setOrder(ordersChrome,"source", "google");
 		setOrder(ordersChrome,"send","Id","gbqfq","test");
 		setOrder(ordersChrome,"click","Id","gbqfb");
 	}
-	public void startTest()
+	
+	
+	private int checkCount( boolean start )
+	{
+		if( start )
+			testCount = 0;
+		return testCount++;
+	}
+	
+	private void startTest()
 	{
 		setOrders();
 		
@@ -52,53 +54,53 @@ public class TesterMain extends TesterSetting{
 		if(readyFireFox) startFirefox();
 		if(closeForComplete) driver.quit();
 		
-		System.out.println("All test complete");
+		System.out.println("All test is successful");
 	}
-	public void startChrome(){
+	private void startChrome(){
 		try{
 			driver.init( new ChromeDriver() );
 			checkOrders( ordersChrome );
 			ordersChrome.clear();
-			System.out.println("Chrome test complete");
+			System.out.println("Chrome test is successful");
 		}catch(Exception e){
-			System.out.println("Chrome test complete");
+			System.out.println("Chrome test is failed");
 		}
 	}
-	public void startFirefox(){
+	private void startFirefox(){
 		try{
 			driver.init( new FirefoxDriver() );
 			checkOrders( ordersfirefox );			
 			ordersfirefox.clear();
-			System.out.println("Firefox test complete");
+			System.out.println("Firefox test is successful");
 		}catch(Exception e){
-			System.out.println("Firefox test complete");
+			System.out.println("Firefox test is failed");
 		}
 	}
-	public void startInternetExplorer(){
+	private void startInternetExplorer(){
 		try{
 			driver.init( new InternetExplorerDriver() );
 			checkOrders( ordersIE );
 			ordersIE.clear();
-			System.out.println("IE test complete");
+			System.out.println("IE test is completeful");
 		}catch(Exception e){
-			System.out.println("IE test complete");
+			System.out.println("IE test is failed");
 		}
 	}
 
-	public void setOrder( Vector<Orders> orders, String get, String filename ){
+	private void setOrder( Vector<Orders> orders, String get, String filename ){
 		orders.add( new Orders( get, filename ) );
 	}
-	public void setOrder( Vector<Orders> orders, String url ){
+	private void setOrder( Vector<Orders> orders, String url ){
 		orders.add( new Orders( url ) );
 	}
-	public void setOrder( Vector<Orders> orders, String type, String target, String name, String text ){
+	private void setOrder( Vector<Orders> orders, String type, String target, String name, String text ){
 		orders.add( new Orders( type, target, name, text) );
 	}
-	public void setOrder( Vector<Orders> orders, String type, String target, String name ){
+	private void setOrder( Vector<Orders> orders, String type, String target, String name ){
 		orders.add( new Orders( type, target, name ) );
 	}
 
-	public void checkOrders( Vector<Orders> orders ){
+	private void checkOrders( Vector<Orders> orders ){
 		for( Orders now : orders ){
 			if(now.urlLoad){
 				driver.start(now.url);
@@ -130,7 +132,7 @@ public class TesterMain extends TesterSetting{
 		}
 	}
 	
-	public void checkClickTarget( String now, String name ){
+	private void checkClickTarget( String now, String name ){
 		switch( now ){
 		case "id" :
 			driver.clickId(name);
@@ -152,7 +154,7 @@ public class TesterMain extends TesterSetting{
 		}
 	}
 
-	public void checkSendTarget( String now, String name, String text ){
+	private void checkSendTarget( String now, String name, String text ){
 		switch( now ){
 		case "id" :
 			driver.sendId( name, text );
@@ -174,7 +176,7 @@ public class TesterMain extends TesterSetting{
 		}
 	}
 
-	public void checkGettextTarget( String now, String name, Orders order ){
+	private void checkGettextTarget( String now, String name, Orders order ){
 		switch( now ){
 		case "id" :
 			order.text = driver.getTextId(name);
@@ -196,7 +198,7 @@ public class TesterMain extends TesterSetting{
 		}
 	}
 
-	public void checkClearTarget( String now, String name ){
+	private void checkClearTarget( String now, String name ){
 		switch( now ){
 		case "id" :
 			driver.clearId(name);
@@ -218,7 +220,7 @@ public class TesterMain extends TesterSetting{
 		}
 	}
 	
-	public void makeFile( String filename, String text ){
+	private void makeFile( String filename, String text ){
 		try{
 			File f = new File(filename+".html");
 			FileWriter outFile = new FileWriter(f);
