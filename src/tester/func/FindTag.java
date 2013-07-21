@@ -3,100 +3,282 @@ package tester.func;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import tester.main.TesterDebug;
+
 public class FindTag {
-	private WebDriver driver;
-	
-	public void SetDriver( WebDriver driver ){
-		this.driver = driver;
-	}
+	protected WebDriver driver;
 	/**
 	 * Click
 	 **/
 	public FindTag clickXpath( String xpath ){
-		driver.findElement( By.xpath(xpath) ).click();
+		try{
+			driver.findElement( By.xpath(xpath) ).click();
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", XPATH : "+xpath+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+//			//driver.quit();
+		}
 		return this;
 	}
 	public FindTag clickId( String id ){
-		driver.findElement( By.id(id) ).click();
+		try{
+			driver.findElement( By.id(id) ).click();
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", ID : "+id+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+		}
 		return this;
 	}
 	public FindTag clickTag( String tag ){
-		driver.findElement( By.tagName(tag) ).click();
+		try{
+			driver.findElement( By.tagName(tag) ).click();
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", TAG : "+tag+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+		}
 		return this;
 	}	
 	public FindTag clickClass( String tag ){
-		driver.findElement( By.tagName(tag) ).click();
+		try{
+			driver.findElement( By.tagName(tag) ).click();			
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", CLASS : "+tag+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+		}
 		return this;
 	} 
 	public FindTag clickName( String name ){
-		driver.findElement( By.name(name) ).click();
+		try{
+			driver.findElement( By.name(name) ).click();
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", NAME : "+name+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+		}
 		return this;
 	} 
 
 	/**
 	 * Send
 	 **/
-	public FindTag sendXpath( String xpath, String text){
-		driver.findElement( By.xpath(xpath) ).sendKeys(text);
+	public FindTag sendXpath( String xpath, String text ){
+		try{
+			driver.findElement( By.xpath(xpath) ).sendKeys(text);
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", XPATH : "+xpath+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+		}
 		return this;
 	}
-	public FindTag sendId( String id, String text){
-		driver.findElement( By.id(id) ).sendKeys(text);
+	public FindTag sendId( String id, String text ){
+		try{
+			driver.findElement( By.id(id) ).sendKeys(text);
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", ID : "+id+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+		}
 		return this;
 	}
-	public FindTag sendTag( String tag, String text){
-		driver.findElement( By.tagName(tag) ).sendKeys(text);
+	public FindTag sendTag( String tag, String text ){
+		try{
+			driver.findElement( By.tagName(tag) ).sendKeys(text);
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", TAG : "+tag+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+		}
 		return this;
 	}
-	public FindTag sendClass( String tag, String text){
-		driver.findElement( By.tagName(tag) ).sendKeys(text);
+	public FindTag sendClass( String tag, String text ){
+		try{
+			driver.findElement( By.tagName(tag) ).sendKeys(text);
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", CLASS : "+tag+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+		}
 		return this;
 	}
-	public FindTag sendName( String name, String text){
-		driver.findElement( By.name(name) ).sendKeys(text);
+	public FindTag sendName( String name, String text ){
+		try{
+			driver.findElement( By.name(name) ).sendKeys(text);
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", NAME : "+name+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+		}
 		return this;
 	}
-	
+
 	/**
 	 * getText 
 	 **/
 	public String getTextClass( String tag ){
-		return driver.findElement( By.tagName(tag) ).getText();
+		try{
+			return driver.findElement( By.tagName(tag) ).getText();			
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", CLASS : "+tag+" NOT FOUND!!");
+			}else{		
+				e.printStackTrace();
+			}			
+			//driver.quit();
+			return e.toString();
+		}
 	}
 	public String getTextXpath( String xpath ){
-		return driver.findElement( By.xpath(xpath) ).getText();
+		try{
+			return driver.findElement( By.xpath(xpath) ).getText();
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", XPATH : "+xpath+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+			return e.toString();
+		}
 	}
 	public String getTextId( String id ){
-		return driver.findElement( By.id(id) ).getText();
+		try{
+			return driver.findElement( By.id(id) ).getText();
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", ID : "+id+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+			return e.toString();
+		}
 	}
 	public String getTextTag( String tag ){
-		return driver.findElement( By.tagName(tag) ).getText();
+		try{
+			return driver.findElement( By.tagName(tag) ).getText();
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", TAG : "+tag+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+			return e.toString();
+		}
 	}
 	public String getTextName( String name ){
-		return driver.findElement( By.name(name) ).getText();
+		try{
+			return driver.findElement( By.name(name) ).getText();
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", NAME : "+name+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+			return e.toString();
+		}
 	}
-	
+
 	/**
 	 * clear 
 	 **/
 	public FindTag clearXpath( String xpath ){
-		driver.findElement( By.xpath(xpath) ).clear();
+		try{
+			driver.findElement( By.xpath(xpath) ).clear();
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", XPATH : "+xpath+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+		}
 		return this;
 	}
 	public FindTag clearId( String id ){
-		driver.findElement( By.id(id )).clear();
+		try{
+			driver.findElement( By.id(id )).clear();			
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", ID : "+id+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+		}
 		return this;
 	}
 	public FindTag clearTag( String tag ){
-		driver.findElement( By.tagName(tag) ).clear();
+		try{
+			driver.findElement( By.tagName(tag) ).clear();			
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", TAG : "+tag+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+		}
 		return this;
 	}
 	public FindTag clearClass( String tag ){
-		driver.findElement( By.tagName(tag) ).clear();
+		try{
+			driver.findElement( By.tagName(tag) ).clear();
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("URL : "+driver.getCurrentUrl()+", CLASS : "+tag+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+		}
 		return this;
 	}
 	public FindTag clearName( String name ){
-		driver.findElement( By.name(name) ).clear();
+		try{
+			driver.findElement( By.name(name) ).clear();
+		}catch(Exception e){
+			if(TesterDebug.PRINTDEBUG.get()){
+				System.err.println("FUNCTION : clearName, URL : "+driver.getCurrentUrl()+", NAME : "+name+" NOT FOUND!!");
+			}else{
+				e.printStackTrace();
+			}
+			//driver.quit();
+		}
 		return this;
 	}
 }
